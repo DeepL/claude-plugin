@@ -39,7 +39,9 @@ active, follow every rule below on each job.
   unless the context clearly calls for EN-GB.
 - **Never invent support.** Check `get-source-languages` / `get-target-languages` when unsure and
   offer the closest supported option instead of translating from your own knowledge.
-- **Pass surrounding content as `context`.** It improves quality and is not itself translated.
+- **Pass the surrounding text as `context`**: the literal sentences or paragraph around the text, from
+  the same document or conversation. It improves quality and is not itself translated. Steering such as
+  tone or audience goes into `customInstructions`.
 - **Ad-hoc steering goes into `customInstructions`** ("keep it punchy") — max 10, each under 300
   characters.
 
@@ -47,6 +49,9 @@ active, follow every rule below on each job.
 
 - **Supported formats:** docx, pptx, xlsx, pdf, html, txt, srt, xliff, jpeg, png.
 - **Layout is preserved by DeepL.** Never reconstruct the document yourself.
+- **Follow the `upload-document` result.** Send the file to `uploadUrl` yourself. When you cannot, call
+  `upload-document-show-fallback-widget` if the result says so, or tell the user why the file could not be sent.
+  Never fall back to translating the text yourself.
 
 ## Glossaries (`list-glossaries`, `get-glossary-info`, `get-glossary-dictionary-entries`)
 
